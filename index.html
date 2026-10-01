@@ -3,55 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentor de Profissões - Encontre sua Carreira Ideal</title>
+    <meta name="description" content="Descubra caminhos profissionais que combinam com você.">
+    <title>Próximo Passo | Mentor de profissões</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Página de Início -->
-        <div id="welcome-page" class="page active">
-            <div class="welcome-content">
-                <h1>🎯 Mentor de Profissões</h1>
-                <p class="subtitle">Descubra qual carreira combina melhor com você</p>
-                <p class="description">
-                    Responda um rápido questionário sobre seus interesses e habilidades, 
-                    e receba recomendações personalizadas de profissões ideais para seu perfil.
-                </p>
-                <button class="btn btn-primary" onclick="startQuiz()">Começar Questionário</button>
-            </div>
-        </div>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
 
-        <!-- Página do Questionário -->
-        <div id="quiz-page" class="page">
-            <div class="quiz-container">
-                <div class="progress-bar">
-                    <div class="progress" id="progress"></div>
+    <header class="site-header">
+        <a class="brand" href="#" onclick="restartQuiz(); return false;" aria-label="Próximo Passo - início">
+            <span class="brand-mark">↗</span>
+            <span>próximo<span class="brand-dot">.</span>passo</span>
+        </a>
+        <span class="header-note">feito para quem está escolhendo o futuro</span>
+    </header>
+
+    <main class="app-shell">
+        <section id="welcome-page" class="page active" aria-labelledby="welcome-title">
+            <div class="hero-copy">
+                <div class="eyebrow"><span class="eyebrow-dot"></span> seu futuro começa com uma pergunta</div>
+                <h1 id="welcome-title">Não escolha no escuro.<br><em>Descubra seu caminho.</em></h1>
+                <p class="hero-text">Um questionário rápido para conectar seus interesses a possibilidades reais de carreira.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="startQuiz()">Começar agora <span>→</span></button>
+                    <span class="time-note"><strong>5 min</strong><br>para se conhecer melhor</span>
                 </div>
-                <p class="progress-text" id="progress-text">Pergunta 1 de 10</p>
-                
-                <h2 id="question-title"></h2>
-                <div id="options-container" class="options-container"></div>
-                
-                <div class="quiz-navigation">
-                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prev-btn" style="display:none;">← Anterior</button>
-                    <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn">Próxima →</button>
-                </div>
+                <div class="trust-row"><span>✦</span> sem resposta certa ou errada <span class="trust-separator"></span> resultado personalizado</div>
             </div>
-        </div>
-
-        <!-- Página de Resultados -->
-        <div id="results-page" class="page">
-            <div class="results-container">
-                <h1>🌟 Suas Profissões Recomendadas</h1>
-                <p class="results-subtitle">Com base nas suas respostas, aqui estão as carreiras que melhor combinam com você:</p>
-                
-                <div id="recommendations-container" class="recommendations-container"></div>
-                
-                <button class="btn btn-primary" onclick="restartQuiz()">Fazer Questionário Novamente</button>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="orbit orbit-large"></div><div class="orbit orbit-small"></div>
+                <div class="visual-card card-top"><span class="mini-icon coral">✦</span><div><small>seu perfil</small><strong>em construção</strong></div></div>
+                <div class="visual-center"><span>✦</span><small>você</small></div>
+                <div class="visual-card card-bottom"><span class="mini-icon teal">↗</span><div><small>próximo passo</small><strong>mais perto</strong></div></div>
+                <span class="floating-star star-one">✦</span><span class="floating-star star-two">✧</span>
             </div>
-        </div>
-    </div>
+        </section>
 
+        <section id="quiz-page" class="page" aria-labelledby="question-title">
+            <div class="quiz-header"><div><span class="eyebrow">MAPEANDO SEU PERFIL</span><p class="progress-text" id="progress-text">pergunta 01 <span>/ 08</span></p></div><span class="question-number" id="question-number">01</span></div>
+            <div class="progress-bar"><div class="progress" id="progress"></div></div>
+            <div class="quiz-content"><p class="question-kicker">vamos lá</p><h2 id="question-title"></h2><p class="question-help">Escolha a alternativa que mais combina com você.</p><div id="options-container" class="options-container"></div></div>
+            <div class="quiz-navigation"><button class="btn btn-ghost" onclick="previousQuestion()" id="prev-btn" style="display:none">← voltar</button><button class="btn btn-primary" onclick="nextQuestion()" id="next-btn">continuar <span>→</span></button></div>
+        </section>
+
+        <section id="results-page" class="page" aria-labelledby="results-title">
+            <div class="results-intro"><div class="eyebrow"><span class="eyebrow-dot"></span> seu mapa profissional</div><h1 id="results-title">Você tem mais de um<br><em>caminho possível.</em></h1><p>Com base nas suas respostas, estas áreas podem fazer sentido para você. Use-as como ponto de partida — não como uma regra.</p></div>
+            <div id="recommendations-container" class="recommendations-container"></div>
+            <div class="results-footer"><span>Quer explorar outro perfil?</span><button class="btn btn-outline" onclick="restartQuiz()">refazer questionário ↺</button></div>
+        </section>
+    </main>
+    <footer class="site-footer">próximo.passo <span>·</span> uma escolha de cada vez</footer>
     <script src="script.js"></script>
 </body>
 </html>
