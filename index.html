@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor de Profissões - Encontre sua Carreira Ideal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Página de Início -->
+        <div id="welcome-page" class="page active">
+            <div class="welcome-content">
+                <h1>🎯 Mentor de Profissões</h1>
+                <p class="subtitle">Descubra qual carreira combina melhor com você</p>
+                <p class="description">
+                    Responda um rápido questionário sobre seus interesses e habilidades, 
+                    e receba recomendações personalizadas de profissões ideais para seu perfil.
+                </p>
+                <button class="btn btn-primary" onclick="startQuiz()">Começar Questionário</button>
+            </div>
+        </div>
+
+        <!-- Página do Questionário -->
+        <div id="quiz-page" class="page">
+            <div class="quiz-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <p class="progress-text" id="progress-text">Pergunta 1 de 10</p>
+                
+                <h2 id="question-title"></h2>
+                <div id="options-container" class="options-container"></div>
+                
+                <div class="quiz-navigation">
+                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prev-btn" style="display:none;">← Anterior</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn">Próxima →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Resultados -->
+        <div id="results-page" class="page">
+            <div class="results-container">
+                <h1>🌟 Suas Profissões Recomendadas</h1>
+                <p class="results-subtitle">Com base nas suas respostas, aqui estão as carreiras que melhor combinam com você:</p>
+                
+                <div id="recommendations-container" class="recommendations-container"></div>
+                
+                <button class="btn btn-primary" onclick="restartQuiz()">Fazer Questionário Novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
